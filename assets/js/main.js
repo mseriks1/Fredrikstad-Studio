@@ -242,6 +242,12 @@
 
       const formData = new FormData(contactForm);
       formData.delete('audioFile');
+
+      // Keep the anti-spam honeypot empty in the actual request.
+      // Browsers/password managers can sometimes autofill hidden text inputs,
+      // which makes the backend silently treat a genuine enquiry as spam.
+      formData.set('website', '');
+
       formData.set('page', window.location.href);
       formData.set('submittedAt', new Date().toISOString());
 
