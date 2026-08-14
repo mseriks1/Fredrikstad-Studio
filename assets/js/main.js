@@ -14,6 +14,51 @@
   const songCount = document.querySelector('[data-song-count]');
   const songEmpty = document.querySelector('[data-song-empty]');
   const MAX_AUDIO_FILE_BYTES = 10 * 1024 * 1024;
+  const isEnglish = document.documentElement.lang.toLowerCase().startsWith('en');
+  const uiText = isEnglish ? {
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    emptyFile: 'The file will be attached to your enquiry.',
+    invalidMp3: 'Choose an MP3 file.',
+    invalidMp3Detail: 'Choose a file ending in .mp3.',
+    emptyMp3: 'The MP3 file is empty.',
+    emptyMp3Detail: 'The MP3 file is empty. Choose another file.',
+    maxMp3: 'The MP3 file can be up to 10 MB.',
+    maxMp3Detail: (name, size) => `${name} is ${size}. Maximum size is 10 MB.`,
+    fileReady: (name, size) => `${name} · ${size} · ready to send`,
+    formInactive: 'The contact form must be activated before publishing. Email: fredrikstadstudio@gmail.com',
+    formInactiveTitle: 'The form is not activated',
+    formInactiveToast: 'Email fredrikstadstudio@gmail.com.',
+    uploading: 'Uploading…',
+    sending: 'Sending…',
+    uploadAndSend: 'Uploading MP3 and sending your enquiry…',
+    sendingEnquiry: 'Sending your enquiry…',
+    sentWithFile: 'Thank you! Your enquiry and MP3 have been sent to Fredrikstad Studio.',
+    sent: 'Thank you! Your enquiry has been sent to Fredrikstad Studio.',
+    thankYou: 'Thank you!',
+    sentToastFile: 'Your enquiry and MP3 have been sent.',
+    sentToast: 'Your enquiry has been sent to Fredrikstad Studio.',
+    timeout: 'The upload took too long. Try again with a smaller file or email fredrikstadstudio@gmail.com.',
+    readError: 'The MP3 file could not be read. Choose the file again or email fredrikstadstudio@gmail.com.',
+    sendError: 'Your enquiry could not be sent. Try again or email fredrikstadstudio@gmail.com.',
+    sendErrorTitle: 'Could not send',
+    timeoutToast: 'Try again with a smaller file.',
+    readErrorToast: 'Choose the MP3 file again.',
+    sendErrorToast: 'Check your connection and try again.'
+  } : {
+    openMenu: 'Åpne meny', closeMenu: 'Lukk meny',
+    emptyFile: 'Filen legges ved e-posten til Fredrikstad Studio.', invalidMp3: 'Velg en MP3-fil.', invalidMp3Detail: 'Velg en fil som slutter på .mp3.',
+    emptyMp3: 'MP3-filen er tom.', emptyMp3Detail: 'MP3-filen er tom. Velg en annen fil.', maxMp3: 'MP3-filen kan være maks 10 MB.',
+    maxMp3Detail: (name, size) => `${name} er ${size}. Maks størrelse er 10 MB.`, fileReady: (name, size) => `${name} · ${size} · klar til å sendes`,
+    formInactive: 'Kontaktskjemaet må aktiveres før publisering. Kontakt: fredrikstadstudio@gmail.com', formInactiveTitle: 'Skjemaet er ikke aktivert', formInactiveToast: 'Send e-post til fredrikstadstudio@gmail.com.',
+    uploading: 'Laster opp…', sending: 'Sender…', uploadAndSend: 'Laster opp MP3 og sender forespørselen…', sendingEnquiry: 'Sender forespørselen…',
+    sentWithFile: 'Takk! Forespørselen og MP3-filen er sendt til Fredrikstad Studio.', sent: 'Takk! Forespørselen er sendt til Fredrikstad Studio.', thankYou: 'Takk!',
+    sentToastFile: 'Forespørselen og MP3-filen er sendt.', sentToast: 'Forespørselen er sendt til Fredrikstad Studio.',
+    timeout: 'Innsendingen tok for lang tid. Prøv igjen med en mindre fil eller send e-post til fredrikstadstudio@gmail.com.',
+    readError: 'MP3-filen kunne ikke leses. Velg filen på nytt eller send e-post til fredrikstadstudio@gmail.com.',
+    sendError: 'Forespørselen kunne ikke sendes. Prøv igjen eller send e-post til fredrikstadstudio@gmail.com.', sendErrorTitle: 'Kunne ikke sende',
+    timeoutToast: 'Prøv igjen med en mindre fil.', readErrorToast: 'Velg MP3-filen på nytt.', sendErrorToast: 'Kontroller nettet og prøv igjen.'
+  };
 
   document.querySelectorAll('[data-delay]').forEach((item) => {
     item.style.setProperty('--delay', `${item.dataset.delay}ms`);
@@ -26,14 +71,14 @@
   menuButton?.addEventListener('click', () => {
     const open = body.classList.toggle('menu-open');
     menuButton.setAttribute('aria-expanded', String(open));
-    menuButton.setAttribute('aria-label', open ? 'Lukk meny' : 'Åpne meny');
+    menuButton.setAttribute('aria-label', open ? uiText.closeMenu : uiText.openMenu);
   });
 
   nav?.addEventListener('click', (event) => {
     if (event.target.closest('a')) {
       body.classList.remove('menu-open');
       menuButton?.setAttribute('aria-expanded', 'false');
-      menuButton?.setAttribute('aria-label', 'Åpne meny');
+      menuButton?.setAttribute('aria-label', uiText.openMenu);
     }
   });
 
@@ -111,39 +156,39 @@
     feedback?.classList.remove('is-error', 'is-selected');
 
     if (!file) {
-      if (feedback) feedback.textContent = 'Filen legges ved e-posten til Fredrikstad Studio.';
+      if (feedback) feedback.textContent = uiText.emptyFile;
       return null;
     }
 
     if (!file.name.toLocaleLowerCase('nb-NO').endsWith('.mp3')) {
-      fileInput.setCustomValidity('Velg en MP3-fil.');
+      fileInput.setCustomValidity(uiText.invalidMp3);
       if (feedback) {
-        feedback.textContent = 'Velg en fil som slutter på .mp3.';
+        feedback.textContent = uiText.invalidMp3Detail;
         feedback.classList.add('is-error');
       }
       return null;
     }
 
     if (file.size <= 0) {
-      fileInput.setCustomValidity('MP3-filen er tom.');
+      fileInput.setCustomValidity(uiText.emptyMp3);
       if (feedback) {
-        feedback.textContent = 'MP3-filen er tom. Velg en annen fil.';
+        feedback.textContent = uiText.emptyMp3Detail;
         feedback.classList.add('is-error');
       }
       return null;
     }
 
     if (file.size > MAX_AUDIO_FILE_BYTES) {
-      fileInput.setCustomValidity('MP3-filen kan være maks 10 MB.');
+      fileInput.setCustomValidity(uiText.maxMp3);
       if (feedback) {
-        feedback.textContent = `${file.name} er ${formatFileSize(file.size)}. Maks størrelse er 10 MB.`;
+        feedback.textContent = uiText.maxMp3Detail(file.name, formatFileSize(file.size));
         feedback.classList.add('is-error');
       }
       return null;
     }
 
     if (feedback) {
-      feedback.textContent = `${file.name} · ${formatFileSize(file.size)} · klar til å sendes`;
+      feedback.textContent = uiText.fileReady(file.name, formatFileSize(file.size));
       feedback.classList.add('is-selected');
     }
     return file;
@@ -188,10 +233,10 @@
       const endpoint = getContactEndpoint();
       if (!endpoint) {
         if (formNote) {
-          formNote.textContent = 'Kontaktskjemaet må aktiveres før publisering. Kontakt: fredrikstadstudio@gmail.com';
+          formNote.textContent = uiText.formInactive;
           formNote.classList.add('is-error');
         }
-        showToast('Skjemaet er ikke aktivert', 'Send e-post til fredrikstadstudio@gmail.com.', 'error');
+        showToast(uiText.formInactiveTitle, uiText.formInactiveToast, 'error');
         return;
       }
 
@@ -204,9 +249,9 @@
         submitButton.disabled = true;
         submitButton.setAttribute('aria-busy', 'true');
       }
-      if (buttonText) buttonText.textContent = audioFile ? 'Laster opp…' : 'Sender…';
+      if (buttonText) buttonText.textContent = audioFile ? uiText.uploading : uiText.sending;
       if (formNote) {
-        formNote.textContent = audioFile ? 'Laster opp MP3 og sender forespørselen…' : 'Sender forespørselen…';
+        formNote.textContent = audioFile ? uiText.uploadAndSend : uiText.sendingEnquiry;
         formNote.classList.remove('is-error', 'is-success');
       }
 
@@ -220,7 +265,7 @@
           formData.set('audioFileType', audioFile.type || 'audio/mpeg');
           formData.set('audioFileSize', String(audioFile.size));
           formData.set('audioFileBase64', base64);
-          if (buttonText) buttonText.textContent = 'Sender…';
+          if (buttonText) buttonText.textContent = uiText.sending;
         }
 
         await fetch(endpoint, {
@@ -234,28 +279,28 @@
         validateAudioFile(fileInput, fileFeedback);
         if (formNote) {
           formNote.textContent = audioFile
-            ? 'Takk! Forespørselen og MP3-filen er sendt til Fredrikstad Studio.'
-            : 'Takk! Forespørselen er sendt til Fredrikstad Studio.';
+            ? uiText.sentWithFile
+            : uiText.sent;
           formNote.classList.add('is-success');
         }
         showToast(
-          'Takk!',
-          audioFile ? 'Forespørselen og MP3-filen er sendt.' : 'Forespørselen er sendt til Fredrikstad Studio.'
+          uiText.thankYou,
+          audioFile ? uiText.sentToastFile : uiText.sentToast
         );
       } catch (error) {
         const timedOut = error?.name === 'AbortError';
         const fileReadError = !timedOut && /fil/i.test(error?.message || '');
         if (formNote) {
           formNote.textContent = timedOut
-            ? 'Innsendingen tok for lang tid. Prøv igjen med en mindre fil eller send e-post til fredrikstadstudio@gmail.com.'
+            ? uiText.timeout
             : fileReadError
-              ? 'MP3-filen kunne ikke leses. Velg filen på nytt eller send e-post til fredrikstadstudio@gmail.com.'
-              : 'Forespørselen kunne ikke sendes. Prøv igjen eller send e-post til fredrikstadstudio@gmail.com.';
+              ? uiText.readError
+              : uiText.sendError;
           formNote.classList.add('is-error');
         }
         showToast(
-          'Kunne ikke sende',
-          timedOut ? 'Prøv igjen med en mindre fil.' : fileReadError ? 'Velg MP3-filen på nytt.' : 'Kontroller nettet og prøv igjen.',
+          uiText.sendErrorTitle,
+          timedOut ? uiText.timeoutToast : fileReadError ? uiText.readErrorToast : uiText.sendErrorToast,
           'error'
         );
       } finally {

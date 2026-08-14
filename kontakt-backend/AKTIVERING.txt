@@ -1,0 +1,45 @@
+AKTIVER KONTAKTSKJEMAET – FREDRIKSTAD STUDIO
+
+Dette gjøres fra Google-kontoen fredrikstadstudio@gmail.com:
+
+FØRSTE GANG
+1. Gå til https://script.google.com/ og velg «Nytt prosjekt».
+2. Slett eksempelteksten i Code.gs.
+3. Kopier inn hele innholdet fra filen Code.gs i denne mappen.
+4. Klikk «Implementer» / «Deploy» øverst til høyre.
+5. Velg «Ny implementering» / «New deployment».
+6. Velg type «Nettapp» / «Web app».
+7. Velg:
+   - Kjør som / Execute as: Meg
+   - Hvem har tilgang / Who has access: Alle / Anyone
+8. Klikk «Implementer» og godkjenn tilgangen Google spør om.
+9. Kopier nettappadressen. Den skal begynne med
+   https://script.google.com/macros/s/
+   og slutte med /exec
+10. Åpne nettsidefilen assets/js/contact-config.js.
+11. Bytt ut teksten LIM_INN_GOOGLE_APPS_SCRIPT_URL_HER med nettappadressen.
+12. Lagre filen og last hele nettsiden opp til GitHub.
+13. Test skjemaet både på forsiden og på kontakt-siden, først uten fil og deretter med en liten MP3.
+
+HVIS KONTAKTSKJEMAET ALLEREDE ER AKTIVERT
+1. Åpne det eksisterende Apps Script-prosjektet.
+2. Erstatt hele innholdet i Code.gs med den nye Code.gs-filen.
+3. Velg Implementer > Administrer implementeringer.
+4. Klikk blyanten for å redigere nettappen.
+5. Velg «Ny versjon» og klikk «Implementer».
+6. Nettappadressen /exec skal normalt være den samme. Du trenger da ikke endre contact-config.js.
+7. Last nettsidefilene fra step1.33 opp til GitHub.
+8. Test med en MP3-fil under 10 MB.
+
+MP3-OPPLASTING
+- Feltet er valgfritt.
+- Kun filer som slutter på .mp3 godtas.
+- Maks filstørrelse er 10 MB.
+- MP3-filen legges ved e-posten som sendes til fredrikstadstudio@gmail.com.
+- Demo-lenke kan fortsatt brukes alene eller sammen med en MP3-fil.
+
+VIKTIG
+- Bruk adressen som slutter på /exec, ikke testadressen som slutter på /dev.
+- E-postene sendes til fredrikstadstudio@gmail.com.
+- Når du svarer på e-posten, går svaret direkte til personen som fylte ut skjemaet.
+- Hvis Code.gs senere endres: Implementer > Administrer implementeringer > Rediger > Ny versjon > Implementer.
