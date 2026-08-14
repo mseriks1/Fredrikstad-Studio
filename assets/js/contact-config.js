@@ -1,3 +1,4 @@
+window.FS_CONTACT_ENDPOINT = "https://script.google.com/macros/s/AKfycbw4Ht-skKD0vtxYYBV4YM8JwKLBU8a8V8pA3yybGJbVkD9XET7pjUKZ5QSquPQoBwBPZw/exec";
 /**
  * Kontaktskjema – Fredrikstad Studio
  *
