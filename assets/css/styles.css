@@ -2732,3 +2732,6 @@ h1, h2, h3, h4, p, li {
  .about-studio-photo{height:420px;margin-top:48px;border-radius:18px}
  .online-about-photo{height:360px}
 }
+
+/* step1.47 — microphone image stands alone in the equipment section */
+.studio-feature-microphone img { object-position:center 48%; }
