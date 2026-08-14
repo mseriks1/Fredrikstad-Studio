@@ -43,3 +43,8 @@ VIKTIG
 - E-postene sendes til fredrikstadstudio@gmail.com.
 - Når du svarer på e-posten, går svaret direkte til personen som fylte ut skjemaet.
 - Hvis Code.gs senere endres: Implementer > Administrer implementeringer > Rediger > Ny versjon > Implementer.
+
+SYNLIGHET AV E-POSTADRESSE
+Mottakeradressen fredrikstadstudio@gmail.com brukes kun i backend-skriptet.
+Den vises ikke i kontaktskjemaet eller på nettsiden. Kunden forholder seg
+til Fredrikstad Studio og kontaktskjemaet.
