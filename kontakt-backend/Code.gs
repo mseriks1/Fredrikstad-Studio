@@ -9,26 +9,23 @@ const MAX_REQUESTS_PER_10_MINUTES = 30;
 const MAX_AUDIO_FILE_BYTES = 10 * 1024 * 1024;
 
 /**
- * Kjør denne manuelt fra Apps Script-editoren.
- * Hvis denne feiler eller e-posten ikke kommer frem, ligger problemet i
- * Apps Script/Gmail-oppsettet og ikke i nettsidens kontaktskjema.
+ * Kjør denne manuelt én gang i Apps Script for å bekrefte at MailApp fungerer.
  */
 function testEmail() {
   const now = new Date();
-  const subject = 'TEST – Fredrikstad Studio kontaktskjema';
-  const body = 'Dette er en direkte test fra Google Apps Script.\n\nTid: ' + now.toISOString();
+  console.log('testEmail: sender test til ' + RECIPIENT_EMAIL);
 
-  console.log('testEmail: mottaker=' + RECIPIENT_EMAIL);
-  console.log('testEmail: gjenstående kvote før sending=' + MailApp.getRemainingDailyQuota());
-
-  MailApp.sendEmail(RECIPIENT_EMAIL, subject, body, {
+  MailApp.sendEmail({
+    to: RECIPIENT_EMAIL,
+    subject: 'TEST – Fredrikstad Studio kontaktskjema',
+    body: 'Dette er en direkte test fra Google Apps Script.\n\nTid: ' + now.toISOString(),
     htmlBody: '<p>Dette er en <strong>direkte test</strong> fra Google Apps Script.</p><p>Tid: ' + now.toISOString() + '</p>',
     name: 'Fredrikstad Studio – nettsiden'
   });
 
   console.log('testEmail: MailApp.sendEmail fullført');
-  console.log('testEmail: gjenstående kvote etter sending=' + MailApp.getRemainingDailyQuota());
 }
+
 
 function doGet() {
   return jsonResponse_({
@@ -38,13 +35,12 @@ function doGet() {
 }
 
 function doPost(event) {
-  console.log('doPost: request mottatt');
-
   try {
+    console.log('doPost: request mottatt');
     const params = event && event.parameter ? event.parameter : {};
     console.log('doPost: felter=' + Object.keys(params).join(','));
 
-    // Skjult anti-spamfelt. En ekte bruker skal aldri fylle dette ut.
+    // Skjult felt som vanlige besøkende aldri fyller ut.
     if (clean_(params.website, 200)) {
       console.log('doPost: honeypot var utfylt – ingen e-post sendt');
       return jsonResponse_({ ok: true, ignored: true });
@@ -70,7 +66,6 @@ function doPost(event) {
     const audioDescription = audioAttachment
       ? `${audioAttachment.getName()} (${formatMegabytes_(audioAttachment.getBytes().length)})`
       : 'Ikke vedlagt';
-
     const subject = `Ny forespørsel fra nettsiden – ${type}`;
     const demoHtml = isHttpUrl_(demo)
       ? `<a href="${escapeHtml_(demo)}">${escapeHtml_(demo)}</a>`
@@ -110,27 +105,23 @@ function doPost(event) {
         </p>
       </div>`;
 
-    const options = {
+    const mailOptions = {
+      to: RECIPIENT_EMAIL,
       replyTo: email,
+      subject: subject,
+      body: plainBody,
       htmlBody: htmlBody,
       name: 'Fredrikstad Studio – nettsiden'
     };
 
     if (audioAttachment) {
-      options.attachments = [audioAttachment];
+      mailOptions.attachments = [audioAttachment];
     }
 
-    const quotaBefore = MailApp.getRemainingDailyQuota();
     console.log('doPost: sender e-post til ' + RECIPIENT_EMAIL + ' med emne: ' + subject);
-    console.log('doPost: gjenstående daglig kvote før sending=' + quotaBefore);
+    console.log('doPost: gjenstående daglig kvote før sending=' + MailApp.getRemainingDailyQuota());
 
-    if (quotaBefore < 1) {
-      throw new Error('E-postkvoten i Google Apps Script er brukt opp.');
-    }
-
-    // Bruk den eksplisitte sendEmail(recipient, subject, body, options)-formen.
-    // Hvis dette feiler, skal utførelsen markeres som Failed i Apps Script.
-    MailApp.sendEmail(RECIPIENT_EMAIL, subject, plainBody, options);
+    MailApp.sendEmail(mailOptions);
 
     console.log('doPost: MailApp.sendEmail fullført');
     console.log('doPost: gjenstående daglig kvote etter sending=' + MailApp.getRemainingDailyQuota());
@@ -138,10 +129,10 @@ function doPost(event) {
     return jsonResponse_({ ok: true });
   } catch (error) {
     console.error('doPost FEIL: ' + (error && error.stack ? error.stack : error));
-
-    // Viktig: Ikke skjul feilen bak et vanlig "ok:false"-svar.
-    // Da vises utførelsen som Failed i Apps Script, slik at årsaken kan leses direkte.
-    throw error;
+    return jsonResponse_({
+      ok: false,
+      error: error && error.message ? error.message : 'Ukjent feil.'
+    });
   }
 }
 
@@ -254,7 +245,10 @@ function escapeHtml_(value) {
 }
 
 function row_(label, value) {
-  return `<tr><td style="padding:8px 12px 8px 0;color:#666;vertical-align:top;width:130px">${escapeHtml_(label)}</td><td style="padding:8px 0;font-weight:600">${value}</td></tr>`;
+  return `<tr>
+    <th style="text-align:left;vertical-align:top;padding:8px 12px 8px 0;border-bottom:1px solid #ddd;width:110px">${escapeHtml_(label)}</th>
+    <td style="padding:8px 0;border-bottom:1px solid #ddd">${value}</td>
+  </tr>`;
 }
 
 function jsonResponse_(payload) {

@@ -2713,25 +2713,26 @@ h1, h2, h3, h4, p, li {
 }
 
 
-/* step1.46 — distributed studio photography */
-.studio-feature-image, .studio-image-break, .about-studio-photo, .online-about-photo { overflow:hidden; }
-.studio-feature-image img, .studio-image-break img, .about-studio-photo img, .online-about-photo img { display:block; width:100%; height:100%; object-fit:cover; }
-.studio-feature-wide { height:clamp(360px,48vw,620px); border-radius:24px; border:1px solid rgba(255,255,255,.12); }
-.studio-feature-detail { width:min(720px,72%); height:clamp(260px,32vw,430px); margin:52px 0 12px auto; border-radius:22px; border:1px solid rgba(255,255,255,.12); }
-.studio-image-break { width:min(1180px,calc(100% - 48px)); height:clamp(300px,39vw,520px); margin-top:clamp(55px,8vw,105px); margin-bottom:clamp(55px,8vw,105px); border-radius:24px; }
-.studio-image-break img { object-position:center; }
-.studio-image-break-right { width:min(920px,calc(100% - 48px)); margin-left:auto; margin-right:max(24px,calc((100% - 1180px)/2)); }
-.about-studio-photo { height:clamp(390px,48vw,650px); margin-top:70px; border-radius:24px; }
-.about-studio-photo img { object-position:center 38%; }
-.online-about-photo { height:280px; margin:28px 0 30px; border-radius:20px; }
-.online-about-photo img { object-position:center 35%; }
-@media (max-width:720px){
- .studio-image-break,.studio-image-break-right{width:calc(100% - 32px);height:300px;margin-left:16px;margin-right:16px;border-radius:18px}
- .studio-feature-detail{width:100%;height:280px;margin-top:34px}
- .studio-feature-wide{height:340px;border-radius:18px}
- .about-studio-photo{height:420px;margin-top:48px;border-radius:18px}
- .online-about-photo{height:360px}
+/* Step 1.46 – ekte studiobilder spredt gjennom innholdet, uten beskjæring */
+.studio-scene { margin-top: clamp(34px,5vw,68px); margin-bottom: clamp(34px,6vw,82px); }
+.studio-scene img, .about-marius-image img { display:block; width:100%; height:auto; object-fit:contain; border-radius:20px; border:1px solid rgba(255,255,255,.10); box-shadow:0 22px 55px rgba(0,0,0,.18); }
+.studio-scene-wide { max-width:1120px; }
+.studio-scene-side { width:min(58%,760px); }
+.studio-scene-right { margin-left:auto; }
+.studio-scene-left { margin-right:auto; }
+.studio-scene-outboard { width:min(48%,610px); margin-left:auto; margin-top:34px; margin-bottom:12px; }
+/* Den tidligere collagen er nå kun Neumann-bildet. */
+.equipment-gallery { display:block; max-width:820px; }
+.equipment-photo-main { display:block; }
+.equipment-photo-main img { width:100%; height:auto; object-fit:contain; object-position:center; }
+.equipment-photo-main { overflow:hidden; }
+.about-marius-image { width:min(100%,390px); margin-top:32px; }
+@media (max-width:760px) {
+  .studio-scene-side,.studio-scene-outboard { width:100%; }
+  .studio-scene { margin-top:32px; margin-bottom:48px; }
+  .studio-scene img,.about-marius-image img { border-radius:16px; }
+  .equipment-gallery { max-width:none; }
+  .equipment-photo-main { aspect-ratio:auto; }
+  .equipment-photo-main img { height:auto; }
+  .about-marius-image { width:100%; max-width:390px; }
 }
-
-/* step1.47 — microphone image stands alone in the equipment section */
-.studio-feature-microphone img { object-position:center 48%; }
