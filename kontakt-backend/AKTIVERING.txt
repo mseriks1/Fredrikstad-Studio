@@ -48,3 +48,14 @@ SYNLIGHET AV E-POSTADRESSE
 Mottakeradressen fredrikstadstudio@gmail.com brukes kun i backend-skriptet.
 Den vises ikke i kontaktskjemaet eller på nettsiden. Kunden forholder seg
 til Fredrikstad Studio og kontaktskjemaet.
+
+TEST AV E-POST
+1. Etter at Code.gs er limt inn og lagret, velg funksjonen testEmail i funksjonsmenyen øverst.
+2. Klikk Kjør / Run.
+3. Kontroller Gmail for e-post med emnet:
+   TEST – Fredrikstad Studio kontaktskjema
+4. Hvis testmailen kommer frem, publiser en NY VERSJON av nettappen:
+   Implementer -> Administrer implementeringer -> Rediger -> Ny versjon -> Implementer.
+5. Send deretter kontaktskjemaet på nettsiden.
+6. Under Kjøringer / Executions kan doPost åpnes. Loggene viser om validering og MailApp.sendEmail ble nådd.
+

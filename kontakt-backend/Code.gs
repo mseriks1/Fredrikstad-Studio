@@ -8,6 +8,25 @@ const MAX_MESSAGE_LENGTH = 8000;
 const MAX_REQUESTS_PER_10_MINUTES = 30;
 const MAX_AUDIO_FILE_BYTES = 10 * 1024 * 1024;
 
+/**
+ * Kjør denne manuelt én gang i Apps Script for å bekrefte at MailApp fungerer.
+ */
+function testEmail() {
+  const now = new Date();
+  console.log('testEmail: sender test til ' + RECIPIENT_EMAIL);
+
+  MailApp.sendEmail({
+    to: RECIPIENT_EMAIL,
+    subject: 'TEST – Fredrikstad Studio kontaktskjema',
+    body: 'Dette er en direkte test fra Google Apps Script.\n\nTid: ' + now.toISOString(),
+    htmlBody: '<p>Dette er en <strong>direkte test</strong> fra Google Apps Script.</p><p>Tid: ' + now.toISOString() + '</p>',
+    name: 'Fredrikstad Studio – nettsiden'
+  });
+
+  console.log('testEmail: MailApp.sendEmail fullført');
+}
+
+
 function doGet() {
   return jsonResponse_({
     ok: true,
@@ -17,11 +36,14 @@ function doGet() {
 
 function doPost(event) {
   try {
+    console.log('doPost: request mottatt');
     const params = event && event.parameter ? event.parameter : {};
+    console.log('doPost: felter=' + Object.keys(params).join(','));
 
     // Skjult felt som vanlige besøkende aldri fyller ut.
     if (clean_(params.website, 200)) {
-      return jsonResponse_({ ok: true });
+      console.log('doPost: honeypot var utfylt – ingen e-post sendt');
+      return jsonResponse_({ ok: true, ignored: true });
     }
 
     enforceRateLimit_();
@@ -34,6 +56,7 @@ function doPost(event) {
     const page = clean_(params.page, 1000);
     const submittedAt = clean_(params.submittedAt, 100);
 
+    console.log('doPost: validerer navn/e-post/type/melding');
     if (name.length < 2) throw new Error('Navn mangler.');
     if (!isValidEmail_(email)) throw new Error('Ugyldig e-postadresse.');
     if (!type) throw new Error('Område mangler.');
@@ -95,11 +118,17 @@ function doPost(event) {
       mailOptions.attachments = [audioAttachment];
     }
 
+    console.log('doPost: sender e-post til ' + RECIPIENT_EMAIL + ' med emne: ' + subject);
+    console.log('doPost: gjenstående daglig kvote før sending=' + MailApp.getRemainingDailyQuota());
+
     MailApp.sendEmail(mailOptions);
+
+    console.log('doPost: MailApp.sendEmail fullført');
+    console.log('doPost: gjenstående daglig kvote etter sending=' + MailApp.getRemainingDailyQuota());
 
     return jsonResponse_({ ok: true });
   } catch (error) {
-    console.error(error);
+    console.error('doPost FEIL: ' + (error && error.stack ? error.stack : error));
     return jsonResponse_({
       ok: false,
       error: error && error.message ? error.message : 'Ukjent feil.'
