@@ -2713,197 +2713,91 @@ h1, h2, h3, h4, p, li {
 }
 
 
-/* Step 1.52 – ekte studiobilder integrert i eksisterende layout.
-   Viktig: disse bildene vises alltid i full originalkomposisjon. */
-.studio-editorial-photo {
-  margin: 0;
-  min-width: 0;
+/* Step 1.53 — studiobilder som rolige visuelle pauser, ikke bildegalleri */
+.studio-image-moment {
+  position: relative;
+  width: min(100%, 900px);
+  margin-inline: auto;
+  padding: 9px;
+  overflow: hidden;
+  border: 1px solid rgba(19,18,22,.13);
+  border-radius: 38px;
+  background:
+    linear-gradient(135deg, rgba(255,103,70,.12), rgba(255,255,255,.72) 42%, rgba(155,149,143,.16));
+  box-shadow: 0 28px 70px rgba(24,18,20,.13);
 }
-
-.studio-editorial-photo img {
+.studio-image-moment::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(255,255,255,.20);
+  border-radius: 30px;
+  pointer-events: none;
+}
+.studio-image-moment img {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: none;
-  aspect-ratio: auto;
-  object-fit: contain;
-  object-position: center;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 18px;
-  box-shadow: 0 22px 55px rgba(0,0,0,.16);
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: 30px;
+}
+.studio-image-wide { width: min(100%, 980px); }
+.studio-image-medium { width: min(100%, 840px); }
+.studio-image-compact { width: min(100%, 760px); }
+.studio-image-marius { width: min(100%, 720px); }
+.studio-image-section-start { margin-bottom: clamp(70px,7vw,100px); }
+.studio-image-section-end { margin-top: clamp(70px,7vw,100px); }
+
+/* Dark sections use the same shape with a quieter dark frame. */
+.studio-image-moment-dark {
+  border-color: rgba(255,255,255,.12);
+  background: linear-gradient(135deg, rgba(255,103,70,.17), rgba(255,255,255,.055) 48%, rgba(255,255,255,.025));
+  box-shadow: 0 28px 70px rgba(0,0,0,.25);
 }
 
-/* Forside: bildet blir en del av den eksisterende venstre tekstkolonnen. */
-.music-intro-copy .studio-photo-home {
-  width: min(100%, 520px);
-  margin-top: 38px;
-}
-.music-intro-copy .studio-photo-home img {
-  border-color: rgba(25,25,30,.12);
-  box-shadow: 0 20px 46px rgba(40,30,25,.12);
-}
-
-/* Musikkproduksjon: Moog som et rolig visuelt punkt i produksjonsteksten. */
-.services-intro .studio-photo-moog {
-  width: min(100%, 470px);
-  margin-top: 36px;
-}
-
-/* Høyre kolonne i eksisterende seksjonsoverskrifter kan inneholde tekst + bilde. */
-.section-heading-media {
-  min-width: 0;
-}
-.section-heading-media > p {
-  margin: 0 0 24px;
-  color: var(--muted-dark);
-  font-size: 1.02rem;
-  line-height: 1.65;
-}
-
-/* Utstyr: outboard kobles til introteksten, ikke til Neumann som collage. */
-.equipment-heading {
-  align-items: start;
-}
-.equipment-heading-media > p {
-  color: rgba(255,255,255,.68);
-  font-size: .96rem;
-  line-height: 1.72;
-}
-.equipment-heading-media .studio-photo-outboard {
-  width: min(100%, 430px);
-  margin-top: 24px;
-}
-.equipment-heading-media .studio-photo-outboard img {
-  border-color: rgba(255,255,255,.14);
-}
-
-/* Den gamle collagen er nå kun Neumann-bildet. */
+/* The former three-image equipment collage is now one Neumann image. */
 .equipment-gallery {
-  display: block;
-  width: min(100%, 820px);
-  max-width: 820px;
-  grid-template-columns: none;
-  grid-template-rows: none;
+  display: block !important;
+  width: min(100%, 980px);
+  max-width: 980px;
+  margin-inline: auto;
+  grid-template-columns: none !important;
+  grid-template-rows: none !important;
 }
 .equipment-gallery .equipment-photo-main {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: auto;
-  grid-column: auto;
-  grid-row: auto;
-  overflow: hidden;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+  border-radius: 30px;
 }
 .equipment-gallery .equipment-photo-main img {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: none;
-  aspect-ratio: auto;
-  object-fit: contain;
-  object-position: center;
-}
-.equipment-gallery .equipment-photo-main::after {
-  background: linear-gradient(180deg, transparent 72%, rgba(0,0,0,.16));
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
 }
 
-/* Priser/pakker: gitarbildet hører til teksten om studioarbeid og innspilling. */
-.studio-services-section .service-heading-media > p {
-  color: rgba(255,255,255,.66);
-  font-size: 1.02rem;
-  line-height: 1.65;
-}
-.service-heading-media .studio-photo-guitar {
-  width: min(100%, 430px);
-  margin-top: 24px;
-}
-
-/* Om oss: bevisst mindre bilde, integrert under presentasjonsoverskriften. */
-.about-copy-grid .studio-photo-marius {
-  width: min(100%, 360px);
-  margin-top: 34px;
-}
-.about-copy-grid .studio-photo-marius img {
-  border-color: rgba(25,25,30,.12);
-  box-shadow: 0 18px 42px rgba(40,30,25,.11);
-}
-
-/* Online-siden: få, spredte bilder i eksisterende tekstkolonner. */
-.online-about .studio-photo-online-about {
-  width: min(100%, 430px);
-  margin-top: 30px;
-}
-.online-about .studio-photo-online-about img {
-  border-color: rgba(25,25,30,.12);
-  box-shadow: 0 18px 42px rgba(40,30,25,.11);
-}
-.online-services-media > p {
-  color: rgba(255,255,255,.55);
-  font-size: 1.02rem;
-  line-height: 1.65;
-}
-.online-services-media .studio-photo-online-moog {
-  width: min(100%, 430px);
-  margin-top: 24px;
-}
-
-/* Tablet/mobil: samme naturlige bildeformat, bare bredere i kolonnen. */
-@media (max-width: 860px) {
-  .music-intro-copy .studio-photo-home,
-  .services-intro .studio-photo-moog,
-  .equipment-heading-media .studio-photo-outboard,
-  .service-heading-media .studio-photo-guitar,
-  .online-about .studio-photo-online-about,
-  .online-services-media .studio-photo-online-moog {
-    width: min(100%, 620px);
-  }
-
-  .about-copy-grid .studio-photo-marius {
-    width: min(100%, 420px);
-  }
-
-  .section-heading-media > p {
-    max-width: 620px;
-  }
-}
-
-@media (max-width: 600px) {
-  .studio-editorial-photo img {
-    border-radius: 15px;
-  }
-
-  .music-intro-copy .studio-photo-home,
-  .services-intro .studio-photo-moog,
-  .about-copy-grid .studio-photo-marius,
-  .equipment-heading-media .studio-photo-outboard,
-  .service-heading-media .studio-photo-guitar,
-  .online-about .studio-photo-online-about,
-  .online-services-media .studio-photo-online-moog {
+@media (max-width: 760px) {
+  .studio-image-moment {
     width: 100%;
+    padding: 7px;
+    border-radius: 25px;
   }
-
-  .music-intro-copy .studio-photo-home,
-  .services-intro .studio-photo-moog {
-    margin-top: 30px;
+  .studio-image-moment::after {
+    inset: 6px;
+    border-radius: 19px;
   }
-
-  .section-heading-media > p {
-    margin-bottom: 20px;
-  }
-
-  .equipment-gallery {
-    width: 100%;
-    max-width: none;
-    grid-template-columns: none;
-    grid-template-rows: none;
-  }
-
-  .equipment-gallery .equipment-photo-main {
-    aspect-ratio: auto;
-  }
-
-  .equipment-gallery .equipment-photo-main img {
-    height: auto;
-    object-fit: contain;
-  }
+  .studio-image-moment img { border-radius: 19px; }
+  .studio-image-section-start { margin-bottom: 55px; }
+  .studio-image-section-end { margin-top: 55px; }
+  .equipment-gallery .equipment-photo-main { border-radius: 20px; }
 }
