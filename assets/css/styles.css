@@ -463,6 +463,15 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 .online-faq-grid h3 { margin: 0 0 12px; font-size: 1.2rem; }
 .online-faq-grid p { margin: 0; color: var(--muted-dark); font-size: .9rem; }
 
+
+.release-support { background: var(--ink); color: #fff; }
+.release-support-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(55px,8vw,120px); align-items:center; }
+.release-support .eyebrow { color:rgba(255,255,255,.58); }
+.release-support h2 { margin:0; color:#fff; }
+.release-support h2 em { color:var(--orange); }
+.release-support-copy { max-width:720px; padding-left:clamp(0px,3vw,45px); border-left:1px solid rgba(255,255,255,.18); }
+.release-support-copy p { margin:0; color:rgba(255,255,255,.76); font-size:clamp(1.02rem,1.4vw,1.22rem); line-height:1.75; }
+
 @media (max-width: 1080px) {
   :root { --shell: min(100% - 36px, 980px); }
   .main-nav { gap: 18px; }
@@ -476,6 +485,8 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 }
 
 @media (max-width: 860px) {
+  .release-support-grid { grid-template-columns:1fr; gap:32px; }
+  .release-support-copy { padding-left:0; padding-top:28px; border-left:0; border-top:1px solid rgba(255,255,255,.18); }
   .online-about-grid, .online-payment-grid { grid-template-columns: 1fr; gap: 42px; }
   :root { --shell: min(100% - 32px, 720px); }
   .section { padding: 95px 0; }
