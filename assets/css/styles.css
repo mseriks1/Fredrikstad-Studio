@@ -3546,3 +3546,46 @@ h1, h2, h3, h4, p, li {
     justify-content: center;
   }
 }
+
+
+/* Step 1.66 – robust Session workflow layout at all desktop/laptop widths.
+   Never allow the explanatory text to collapse into a narrow grid track. */
+.online-session-order {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  column-gap: 30px !important;
+  row-gap: 20px !important;
+}
+.online-session-order > p {
+  flex: 1 1 360px !important;
+  width: auto !important;
+  min-width: 280px !important;
+  max-width: 560px !important;
+}
+.online-session-order .button {
+  flex: 0 0 auto !important;
+  width: auto !important;
+}
+
+/* At narrower laptop/tablet widths, stack before the copy becomes cramped. */
+@media (max-width: 1180px) {
+  .online-session-order {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .online-session-order > p {
+    flex: 0 1 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .online-session-order .button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
