@@ -3518,3 +3518,31 @@ h1, h2, h3, h4, p, li {
     grid-template-columns: minmax(0, 1fr) auto;
   }
 }
+
+
+/* Step 1.65 – fix Session workflow at laptop/tablet widths.
+   A late grid override in 1.64 overruled the intended stacked layout <=1080px. */
+@media (max-width: 1080px) {
+  .online-session-order {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  .online-session-order > p {
+    width: 100%;
+    max-width: 560px;
+    min-width: 0;
+  }
+  .online-session-order .button {
+    width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .online-session-order .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
