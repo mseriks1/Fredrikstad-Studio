@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<title>Siden er flyttet – Fredrikstad Studio</title>
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<script>
+(function () {
+    const redirects = {
+      '/index.php': '/',
+      '/forside.php': '/',
+      '/vi-tilbyr.php': '/musikkproduksjon.html',
+      '/vitilbyr.php': '/musikkproduksjon.html',
+      '/priser.php': '/pakker-og-priser.html',
+      '/om-oss.php': '/om-oss.html',
+      '/omoss.php': '/om-oss.html',
+      '/utstyr.php': '/musikkproduksjon.html#studio-og-utstyr',
+      '/klienter.php': '/#prosjekter',
+      '/contact.php': '/kontakt.html',
+      '/kontakt.php': '/kontakt.html',
+      '/musikkakademi.php': '/undervisning.html',
+      '/keys.php': '/undervisning.html',
+      '/gitar.php': '/undervisning.html',
+      '/bass.php': '/undervisning.html',
+      '/studiovokal.php': '/undervisning.html',
+      '/rock-og-studio.php': '/undervisning.html',
+      '/ukulele.php': '/undervisning.html',
+      '/musikkproduksjon.php': '/undervisning.html',
+      '/låtskriving.php': '/undervisning.html',
+      '/påmelding.php': '/undervisning.html'
+    };
+    let path = window.location.pathname;
+    try { path = decodeURIComponent(path); } catch (e) {}
+    const target = redirects[path.toLowerCase()];
+    if (target) {
+        window.location.replace(target);
+    }
+})();
+</script>
+<style>
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; display: grid; place-items: center;
+  background: #0b0b0f; color: #f5f3ef; font-family: Arial, Helvetica, sans-serif;
+}
+main { width: min(700px, calc(100% - 40px)); padding: 48px 0; }
+small { color: #e78b3a; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
+h1 { font-size: clamp(2.2rem, 7vw, 4.5rem); line-height: .98; margin: 14px 0 20px; }
+p { color: #b9b6b0; line-height: 1.65; font-size: 1.06rem; max-width: 590px; }
+nav { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+a {
+  color: #fff; text-decoration: none; border: 1px solid #3b3938;
+  border-radius: 999px; padding: 12px 18px;
+}
+a:first-child { background: #e78b3a; border-color: #e78b3a; color: #111; }
+</style>
+</head>
+<body>
+<main>
+<small>Fredrikstad Studio</small>
+<h1>Denne siden har flyttet.</h1>
+<p>Nettsiden er fornyet. Hvis vi kjenner igjen den gamle adressen, blir du sendt automatisk til riktig ny side. Ellers kan du fortsette her:</p>
+<nav>
+<a href="/">Forsiden</a>
+<a href="/musikkproduksjon.html">Musikkproduksjon</a>
+<a href="/pakker-og-priser.html">Pakker og priser</a>
+<a href="/undervisning.html">Undervisning</a>
+<a href="/kontakt.html">Kontakt</a>
+</nav>
+</main>
+</body>
+</html>
