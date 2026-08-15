@@ -3665,3 +3665,22 @@ h1, h2, h3, h4, p, li {
     margin-top: 28px;
   }
 }
+
+/* Step 1.69 – vis hele teksten i båndet på Komplett låtprosess */
+.package-ribbon {
+  top: 50px;
+  right: -18px;
+  width: 230px;
+  font-size: .58rem;
+  letter-spacing: .08em;
+}
+
+@media (max-width: 760px) {
+  .package-ribbon {
+    top: 46px;
+    right: -16px;
+    width: 215px;
+    font-size: .55rem;
+    letter-spacing: .07em;
+  }
+}
