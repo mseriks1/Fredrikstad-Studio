@@ -3218,3 +3218,107 @@ h1, h2, h3, h4, p, li {
   .online-session-moog-feature { padding: 5px; border-radius: var(--radius-md); }
   .online-session-moog-feature img { border-radius: calc(var(--radius-md) - 6px); }
 }
+
+
+/* Step 1.59 – Online equipment accordion under Session recordings */
+.online-session-equipment {
+  margin-top: clamp(58px,7vw,92px);
+  padding-top: clamp(42px,5vw,64px);
+  border-top: 1px solid rgba(255,255,255,.11);
+}
+.online-session-equipment-intro {
+  display: grid;
+  grid-template-columns: minmax(0,.85fr) minmax(320px,1.15fr);
+  gap: clamp(28px,5vw,70px);
+  align-items: end;
+  margin-bottom: 10px;
+}
+.online-session-equipment-intro .eyebrow {
+  grid-column: 1 / -1;
+  margin-bottom: -4px;
+}
+.online-session-equipment-intro h3 {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(2rem,3.4vw,3.5rem);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+.online-session-equipment-intro h3 em {
+  color: var(--orange);
+  font-family: Georgia,serif;
+  font-weight: 400;
+}
+.online-session-equipment-intro > p:last-child {
+  margin: 0;
+  max-width: 650px;
+  color: rgba(255,255,255,.62);
+  font-size: .96rem;
+  line-height: 1.72;
+}
+.online-equipment-details {
+  margin-top: 30px;
+}
+.online-equipment-details .equipment-category {
+  background: rgba(255,255,255,.04);
+}
+@media (max-width: 760px) {
+  .online-session-equipment {
+    margin-top: 48px;
+    padding-top: 36px;
+  }
+  .online-session-equipment-intro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .online-session-equipment-intro .eyebrow {
+    grid-column: auto;
+    margin-bottom: 0;
+  }
+}
+
+
+/* Step 1.60 – make the Online equipment accordion unmistakably visible */
+.online-equipment-details {
+  margin-top: 28px;
+  border: 0;
+}
+.online-equipment-details > summary {
+  min-height: 86px;
+  padding: 20px 22px;
+  border: 1px solid rgba(255,103,70,.48);
+  border-radius: 18px;
+  background: rgba(255,103,70,.065);
+  box-shadow: 0 14px 34px rgba(0,0,0,.13);
+  transition: border-color .25s ease, background .25s ease, transform .25s ease;
+}
+.online-equipment-details > summary:hover {
+  border-color: rgba(255,103,70,.82);
+  background: rgba(255,103,70,.105);
+  transform: translateY(-1px);
+}
+.online-equipment-details .equipment-summary-label {
+  color: var(--white);
+  font-size: 1.02rem;
+  font-weight: 760;
+  letter-spacing: .005em;
+}
+.online-equipment-details .equipment-summary-icon {
+  border-color: rgba(255,103,70,.68);
+  background: rgba(255,103,70,.08);
+}
+.online-equipment-details[open] > summary {
+  margin-bottom: 22px;
+  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.045);
+}
+@media (max-width: 600px) {
+  .online-equipment-details > summary {
+    min-height: 76px;
+    padding: 17px 18px;
+    border-radius: 15px;
+  }
+  .online-equipment-details .equipment-summary-label {
+    font-size: .95rem;
+  }
+}
