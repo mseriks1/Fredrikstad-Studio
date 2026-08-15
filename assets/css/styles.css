@@ -2886,3 +2886,50 @@ h1, h2, h3, h4, p, li {
     width: min(100%, 560px);
   }
 }
+
+
+/* Step 1.55 – bytte bilde på undervisning, flytte Moog og legge inn lite bassdetaljbilde */
+.studio-inline-break {
+  margin: 42px auto 0;
+}
+.studio-inline-break-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.studio-media-moog-late {
+  width: min(100%, 430px);
+  margin: 0 auto 20px;
+  border-color: rgba(255,255,255,.13);
+  background: rgba(255,255,255,.055);
+  box-shadow: 0 20px 48px rgba(0,0,0,.18);
+}
+.studio-media-bass-small {
+  width: min(100%, 300px);
+  border-color: rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  box-shadow: 0 16px 38px rgba(0,0,0,.14);
+}
+
+@media (max-width: 860px) {
+  .studio-inline-break {
+    margin-top: 34px;
+  }
+  .studio-inline-break-right {
+    justify-content: flex-start;
+  }
+  .studio-media-moog-late {
+    width: min(100%, 520px);
+  }
+  .studio-media-bass-small {
+    width: min(100%, 360px);
+  }
+}
+@media (max-width: 600px) {
+  .studio-inline-break {
+    margin-top: 28px;
+  }
+  .studio-media-moog-late,
+  .studio-media-bass-small {
+    width: 100%;
+  }
+}
