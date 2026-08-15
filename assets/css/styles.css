@@ -3493,3 +3493,28 @@ h1, h2, h3, h4, p, li {
     width: min(78vw, 300px);
   }
 }
+
+
+/* Step 1.64 – flytt bassfoto under Moog-teksten i samme visuelle format */
+.online-session-bass-feature {
+  margin-top: 28px;
+}
+.online-session-bass-feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+/* Remove the extra image slot from the workflow row now that bass lives in the media column. */
+.online-session-order {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+@media (max-width: 1050px) and (min-width: 761px) {
+  .online-session-order {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
