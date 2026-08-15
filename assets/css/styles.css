@@ -3589,3 +3589,33 @@ h1, h2, h3, h4, p, li {
     justify-content: center !important;
   }
 }
+
+
+/* Step 1.67 – Moog-bildet tettere på Låtproduksjon og større på desktop */
+.song-packages-section .studio-moog-package-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.song-packages-section .studio-media-moog-late {
+  width: min(100%, 650px);
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .song-packages-section .studio-moog-package-wrap {
+    margin-top: 24px;
+  }
+  .song-packages-section .studio-media-moog-late {
+    width: min(100%, 620px);
+  }
+}
+
+@media (max-width: 600px) {
+  .song-packages-section .studio-moog-package-wrap {
+    margin-top: 20px;
+  }
+  .song-packages-section .studio-media-moog-late {
+    width: 100%;
+  }
+}
