@@ -3425,3 +3425,71 @@ h1, h2, h3, h4, p, li {
     width: min(100%, 560px);
   }
 }
+
+
+/* Step 1.63 – bassfoto inn i Session-avslutningen + mindre Marius-bilde */
+.online-session-order {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 230px;
+  gap: clamp(24px, 3.5vw, 54px);
+  align-items: center;
+}
+.online-session-order > p {
+  max-width: 560px;
+}
+.online-session-order-bass {
+  width: 230px;
+  margin: 0;
+  padding: 5px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,.04);
+  box-shadow: 0 14px 32px rgba(0,0,0,.16);
+}
+.online-session-order-bass img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: calc(var(--radius-md) - 6px);
+}
+
+/* Marius-bildet nederst skal være et mindre støttebilde. */
+.contact-copy .studio-media-online-contact {
+  width: min(100%, 300px);
+  margin-top: 30px;
+}
+
+/* Mellomstor skjerm: behold bassbildet til høyre, men litt mindre. */
+@media (max-width: 1050px) and (min-width: 761px) {
+  .online-session-order {
+    grid-template-columns: minmax(0, 1fr) auto 190px;
+    gap: 24px;
+  }
+  .online-session-order-bass {
+    width: 190px;
+  }
+}
+
+/* Mobil: tekst, knapp og bilde stables kontrollert. */
+@media (max-width: 760px) {
+  .online-session-order {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .online-session-order .button {
+    width: 100%;
+    justify-content: center;
+  }
+  .online-session-order-bass {
+    width: min(72vw, 280px);
+    margin-top: 4px;
+  }
+  .contact-copy .studio-media-online-contact {
+    width: min(78vw, 300px);
+  }
+}
