@@ -3355,3 +3355,73 @@ h1, h2, h3, h4, p, li {
     margin-left: 0;
   }
 }
+
+
+/* Step 1.62 – bassfoto som bevisst landscape-element + bilder i About/Contact */
+.online-process-lower {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  margin-top: 42px;
+}
+.online-process-bass-wide {
+  width: 100%;
+  margin: 0;
+  padding: 6px;
+  border-color: var(--line);
+  background: rgba(255,255,255,.38);
+  box-shadow: 0 18px 42px rgba(35,27,23,.09);
+}
+.online-process-bass-wide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: calc(var(--radius-lg) - 7px);
+}
+.online-process-lower .online-transfer-note {
+  margin-top: 0;
+}
+
+/* Studio overview now belongs to About Fredrikstad Studio. */
+.online-about .studio-media-online-about {
+  width: min(100%, 430px);
+  margin-top: 34px;
+  padding: 6px;
+  border-color: var(--line);
+  background: rgba(255,255,255,.42);
+  box-shadow: 0 18px 42px rgba(35,27,23,.09);
+}
+.online-about .studio-media-online-about img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: calc(var(--radius-lg) - 7px);
+}
+
+/* Contact keeps the same existing frame/size; only the image changes to Marius. */
+.contact-copy .studio-media-online-contact img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 860px) {
+  .online-process-lower {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .online-process-bass-wide {
+    width: min(100%, 560px);
+  }
+  .online-about .studio-media-online-about {
+    width: min(100%, 560px);
+  }
+}
