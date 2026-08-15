@@ -2935,56 +2935,116 @@ h1, h2, h3, h4, p, li {
 }
 
 
-/* Step 1.56 – Online side: single-instrument sessions + Moog/bass images */
-.online-collaborator-note p {
-  max-width: 980px;
+
+
+
+/* Step 1.57 – tydelig Session-del på Online-siden */
+.online-session-block {
+  display: grid;
+  grid-template-columns: minmax(250px,.78fr) minmax(0,1.22fr);
+  gap: clamp(34px,5vw,72px);
+  align-items: start;
+  margin-top: 38px;
+  padding: clamp(30px,4vw,48px);
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,.035);
 }
-.online-studio-break {
-  margin-top: 30px;
+.online-session-heading h3 {
+  max-width: 430px;
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(2rem,3.2vw,3.25rem);
+  line-height: 1.02;
+  letter-spacing: -.035em;
 }
+.online-session-copy {
+  min-width: 0;
+  color: rgba(255,255,255,.62);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+.online-session-copy > p {
+  margin: 0 0 18px;
+}
+.online-session-copy strong {
+  color: var(--white);
+}
+.online-session-bass {
+  float: right;
+  width: min(34%, 190px);
+  margin: 2px 0 20px 26px;
+  padding: 5px;
+  border-radius: 16px;
+  border-color: rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  box-shadow: 0 14px 30px rgba(0,0,0,.16);
+}
+.online-session-bass img {
+  border-radius: 11px;
+}
+.online-session-vocal-note {
+  clear: both;
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 18px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+.online-session-vocal-note strong {
+  color: var(--orange);
+  font-size: .76rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.online-session-vocal-note p {
+  margin: 0;
+  color: rgba(255,255,255,.58);
+}
+/* Keep the large Moog image as the main visual after Session. */
 .online-studio-break-moog {
   display: flex;
   justify-content: flex-end;
-}
-.online-studio-break-right {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 42px;
-  margin-bottom: 12px;
+  margin-top: 34px;
 }
 .online-studio-insert-moog {
-  width: min(100%, 390px);
+  width: min(100%, 430px);
   border-color: rgba(255,255,255,.13);
   background: rgba(255,255,255,.055);
   box-shadow: 0 20px 48px rgba(0,0,0,.18);
 }
-.online-studio-insert-bass {
-  width: min(100%, 280px);
-  border-color: rgba(255,255,255,.10);
-  background: rgba(255,255,255,.035);
-  box-shadow: 0 16px 36px rgba(0,0,0,.14);
-}
 @media (max-width: 860px) {
-  .online-studio-break-moog,
-  .online-studio-break-right {
+  .online-session-block {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .online-session-heading h3 {
+    max-width: 620px;
+  }
+  .online-studio-break-moog {
     justify-content: flex-start;
   }
   .online-studio-insert-moog {
     width: min(100%, 520px);
   }
-  .online-studio-insert-bass {
-    width: min(100%, 360px);
-  }
 }
 @media (max-width: 600px) {
-  .online-studio-break {
-    margin-top: 24px;
+  .online-session-block {
+    margin-top: 28px;
+    padding: 24px;
+    border-radius: var(--radius-md);
   }
-  .online-studio-break-right {
-    margin-top: 30px;
+  .online-session-bass {
+    float: none;
+    width: 150px;
+    margin: 0 0 20px;
   }
-  .online-studio-insert-moog,
-  .online-studio-insert-bass {
+  .online-session-vocal-note {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .online-studio-insert-moog {
     width: 100%;
   }
 }
