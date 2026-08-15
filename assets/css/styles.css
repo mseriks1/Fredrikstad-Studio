@@ -3322,3 +3322,36 @@ h1, h2, h3, h4, p, li {
     font-size: .95rem;
   }
 }
+
+
+/* Step 1.61 – bassfoto flyttet ut av Session-listen */
+.online-process-heading-media {
+  min-width: 0;
+}
+.online-process-heading-media > p {
+  margin-top: 0;
+}
+.online-process-bass-photo {
+  width: min(100%, 230px);
+  margin: 26px 0 0 auto;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,.36);
+  box-shadow: 0 14px 32px rgba(35,27,23,.08);
+}
+.online-process-bass-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: calc(var(--radius-md) - 6px);
+}
+
+@media (max-width: 860px) {
+  .online-process-bass-photo {
+    width: min(100%, 280px);
+    margin-left: 0;
+  }
+}
