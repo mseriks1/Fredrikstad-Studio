@@ -4189,3 +4189,32 @@ h1, h2, h3, h4, p, li {
   }
   .kpop-header-language a { font-size: .76rem !important; }
 }
+
+
+/* step1.85 — Swaps K-pop stage/vocal images and preserves full framing */
+.kpop-stage-image-boy {
+  min-height: 560px;
+}
+.kpop-stage-image-boy img {
+  object-position: center 18%;
+}
+.kpop-vocal-card .kpop-vocal-card-image-full {
+  min-height: 0;
+}
+.kpop-vocal-card .kpop-vocal-card-image-full img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center center;
+}
+@media (max-width: 860px) {
+  .kpop-stage-image-boy {
+    min-height: 460px;
+  }
+  .kpop-vocal-card .kpop-vocal-card-image-full img {
+    max-width: 300px;
+  }
+}
