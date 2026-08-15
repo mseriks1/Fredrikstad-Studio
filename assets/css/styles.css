@@ -4156,3 +4156,36 @@ h1, h2, h3, h4, p, li {
 @media (max-width: 620px) {
   .kpop-language-switch { margin-bottom: 14px; }
 }
+
+
+/* step1.84 — Visible K-pop language selector in header */
+.kpop-header-language {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0 2px;
+  padding: 6px 9px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 999px;
+  background: rgba(255,255,255,.035);
+  white-space: nowrap;
+}
+.kpop-header-language a {
+  padding: 0 !important;
+  color: rgba(255,255,255,.68) !important;
+  font-size: .68rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .04em !important;
+  border: 0 !important;
+}
+.kpop-header-language a:hover { color: #fff !important; }
+.kpop-header-language a.is-active { color: var(--orange) !important; }
+.kpop-header-language span { color: rgba(255,255,255,.3); font-size: .65rem; }
+@media (max-width: 980px) {
+  .kpop-header-language {
+    width: fit-content;
+    margin: 6px 0 4px;
+    padding: 8px 11px;
+  }
+  .kpop-header-language a { font-size: .76rem !important; }
+}
