@@ -3619,3 +3619,49 @@ h1, h2, h3, h4, p, li {
     width: 100%;
   }
 }
+
+
+/* Step 1.68 – finjuster Moog-bildet og overgangen til Planlegg prosjektet */
+@media (min-width: 861px) {
+  /* Litt bredere vurderingsboks hindrer et enslig siste ord på ny linje. */
+  .song-packages-section .package-price-note {
+    max-width: 920px;
+  }
+
+  /* Større, men fortsatt kontrollert studiobilde på desktop/Mac. */
+  .song-packages-section .studio-moog-package-wrap {
+    margin-top: 42px;
+  }
+  .song-packages-section .studio-media-moog-late {
+    width: min(100%, 780px);
+  }
+
+  /* Unngå dobbel stor vertikal padding mellom de to seksjonene. */
+  .song-packages-section {
+    padding-bottom: 48px;
+  }
+  .song-packages-section + .payment-options-section {
+    padding-top: 76px;
+  }
+}
+
+@media (max-width: 860px) {
+  /* Behold mobil/tablet-uttrykket, men gi bildet litt mer pust over. */
+  .song-packages-section .studio-moog-package-wrap {
+    margin-top: 30px;
+  }
+
+  /* Mindre tomrom etter bildet før neste seksjon. */
+  .song-packages-section {
+    padding-bottom: 48px;
+  }
+  .song-packages-section + .payment-options-section {
+    padding-top: 64px;
+  }
+}
+
+@media (max-width: 600px) {
+  .song-packages-section .studio-moog-package-wrap {
+    margin-top: 28px;
+  }
+}
