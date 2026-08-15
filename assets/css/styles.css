@@ -3048,3 +3048,173 @@ h1, h2, h3, h4, p, li {
     width: 100%;
   }
 }
+
+
+/* Step 1.58 – Online Session Recordings as a primary standalone service */
+.online-sessions {
+  color: var(--white);
+  background: linear-gradient(118deg,#111116 0%,#171316 54%,#26150f 100%);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.online-session-layout {
+  display: grid;
+  grid-template-columns: minmax(0,.95fr) minmax(420px,1.05fr);
+  gap: clamp(48px,7vw,110px);
+  align-items: start;
+}
+.online-session-content h2 {
+  max-width: 720px;
+  margin: 0 0 28px;
+  color: var(--white);
+  font-size: clamp(3rem,5.2vw,5.7rem);
+  line-height: .95;
+  letter-spacing: -.05em;
+}
+.online-session-content h2 em {
+  display: block;
+  color: var(--orange);
+}
+.online-session-lead {
+  max-width: 690px;
+  margin: 0 0 38px;
+  color: rgba(255,255,255,.66);
+  font-size: clamp(1rem,1.4vw,1.15rem);
+  line-height: 1.72;
+}
+.online-session-options {
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.online-session-option {
+  position: relative;
+  display: grid;
+  grid-template-columns: 46px minmax(0,1fr);
+  gap: 18px;
+  align-items: start;
+  min-height: 112px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+.online-session-option-number {
+  padding-top: 3px;
+  color: var(--orange);
+  font-family: Georgia,serif;
+  font-style: italic;
+}
+.online-session-option h3 {
+  margin: 0 0 7px;
+  color: var(--white);
+  font-size: clamp(1.15rem,1.6vw,1.45rem);
+}
+.online-session-option p {
+  max-width: 590px;
+  margin: 0;
+  color: rgba(255,255,255,.55);
+  font-size: .88rem;
+  line-height: 1.55;
+}
+.online-session-option-bass {
+  grid-template-columns: 46px minmax(0,1fr) 122px;
+  align-items: center;
+}
+.online-session-bass-thumb {
+  margin: 0;
+  width: 122px;
+}
+.online-session-bass-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 13px;
+  border: 1px solid rgba(255,255,255,.12);
+}
+.online-session-order {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 34px;
+  padding-top: 28px;
+}
+.online-session-order p {
+  max-width: 560px;
+  margin: 0;
+  color: rgba(255,255,255,.58);
+  font-size: .88rem;
+  line-height: 1.6;
+}
+.online-session-order strong { color: var(--white); }
+.online-session-order .button { flex: 0 0 auto; }
+
+.online-session-media {
+  position: sticky;
+  top: 105px;
+}
+.online-session-moog-feature {
+  margin: 0;
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,.055);
+  box-shadow: 0 28px 68px rgba(0,0,0,.28);
+}
+.online-session-moog-feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: calc(var(--radius-lg) - 9px);
+}
+.online-session-moog-feature figcaption {
+  padding: 13px 7px 4px;
+  color: rgba(255,255,255,.42);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.online-session-media-note {
+  max-width: 560px;
+  margin: 22px 6px 0;
+  color: rgba(255,255,255,.5);
+  font-size: .9rem;
+  line-height: 1.62;
+}
+.online-price-cards .online-price-session {
+  border-color: rgba(255,103,70,.30);
+  background: rgba(255,103,70,.055);
+}
+.online-price-cards .online-price-session small { color: var(--orange); }
+
+@media (max-width: 1080px) {
+  .online-session-layout {
+    grid-template-columns: minmax(0,1fr) minmax(360px,.85fr);
+    gap: 48px;
+  }
+  .online-session-content h2 { font-size: clamp(3rem,6vw,4.8rem); }
+  .online-session-order { align-items: flex-start; flex-direction: column; }
+}
+@media (max-width: 860px) {
+  .online-session-layout { grid-template-columns: 1fr; }
+  .online-session-media { position: static; }
+  .online-session-moog-feature { width: min(100%,680px); }
+  .online-session-option-bass { grid-template-columns: 46px minmax(0,1fr) 110px; }
+  .online-session-bass-thumb { width: 110px; }
+}
+@media (max-width: 600px) {
+  .online-session-content h2 { font-size: clamp(2.65rem,13vw,4rem); }
+  .online-session-option,
+  .online-session-option-bass {
+    grid-template-columns: 34px minmax(0,1fr);
+    min-height: 0;
+  }
+  .online-session-bass-thumb {
+    grid-column: 2;
+    width: 105px;
+    margin-top: 14px;
+  }
+  .online-session-order { gap: 20px; }
+  .online-session-order .button { width: 100%; justify-content: center; }
+  .online-session-moog-feature { padding: 5px; border-radius: var(--radius-md); }
+  .online-session-moog-feature img { border-radius: calc(var(--radius-md) - 6px); }
+}
