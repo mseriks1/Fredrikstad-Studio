@@ -4063,3 +4063,61 @@ h1, h2, h3, h4, p, li {
   .online-path-card figure, .online-path-card figure img { height: 245px; min-height: 245px; }
   .online-path-card-body { padding: 24px; }
 }
+
+
+/* step1.82 — Refines K-pop visuals and online quick links */
+.kpop-stage-media {
+  display: grid;
+  gap: 18px;
+}
+.kpop-stage-image-cute {
+  min-height: 320px;
+}
+.kpop-stage-image-cute img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 0.92;
+  object-fit: cover;
+  object-position: center 28%;
+}
+.kpop-stage-image-graffiti img {
+  object-position: center 50%;
+}
+.kpop-vocal-card .pop-vocal-card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px 0;
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+}
+.kpop-vocal-card .pop-vocal-card-image img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  max-height: 520px;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center center;
+  margin: 0 auto;
+}
+@media (min-width: 861px) {
+  .kpop-stage .pop-stage-grid {
+    align-items: start;
+  }
+}
+@media (max-width: 860px) {
+  .kpop-stage-image-cute {
+    min-height: 280px;
+  }
+  .kpop-stage-image-cute img {
+    aspect-ratio: 0.95;
+    object-position: center 24%;
+  }
+  .kpop-vocal-card .pop-vocal-card-image {
+    padding: 18px 18px 0;
+  }
+  .kpop-vocal-card .pop-vocal-card-image img {
+    max-width: 300px;
+    max-height: 460px;
+  }
+}
