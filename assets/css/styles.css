@@ -4121,3 +4121,38 @@ h1, h2, h3, h4, p, li {
     max-height: 460px;
   }
 }
+
+
+/* step1.83 — K-pop English/Korean language versions */
+.kpop-language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin: 2px 0 18px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 999px;
+  background: rgba(12,12,16,.36);
+  backdrop-filter: blur(10px);
+}
+.kpop-language-switch a {
+  color: rgba(255,255,255,.62);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.kpop-language-switch a:hover,
+.kpop-language-switch a.is-active { color: #fff; }
+.kpop-language-switch a.is-active { color: var(--orange); }
+.kpop-language-switch span { color: rgba(255,255,255,.28); font-size: .72rem; }
+.kpop-page-ko { word-break: keep-all; }
+.kpop-page-ko .online-hero-copy h1,
+.kpop-page-ko .section-heading h2,
+.kpop-page-ko .pop-stage-copy h2,
+.kpop-page-ko .singer-vocal-copy h2,
+.kpop-page-ko .rap-studio-copy h2,
+.kpop-page-ko .contact-copy h2 { letter-spacing: -.045em; }
+@media (max-width: 620px) {
+  .kpop-language-switch { margin-bottom: 14px; }
+}
