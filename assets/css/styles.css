@@ -2933,3 +2933,58 @@ h1, h2, h3, h4, p, li {
     width: 100%;
   }
 }
+
+
+/* Step 1.56 – Online side: single-instrument sessions + Moog/bass images */
+.online-collaborator-note p {
+  max-width: 980px;
+}
+.online-studio-break {
+  margin-top: 30px;
+}
+.online-studio-break-moog {
+  display: flex;
+  justify-content: flex-end;
+}
+.online-studio-break-right {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 42px;
+  margin-bottom: 12px;
+}
+.online-studio-insert-moog {
+  width: min(100%, 390px);
+  border-color: rgba(255,255,255,.13);
+  background: rgba(255,255,255,.055);
+  box-shadow: 0 20px 48px rgba(0,0,0,.18);
+}
+.online-studio-insert-bass {
+  width: min(100%, 280px);
+  border-color: rgba(255,255,255,.10);
+  background: rgba(255,255,255,.035);
+  box-shadow: 0 16px 36px rgba(0,0,0,.14);
+}
+@media (max-width: 860px) {
+  .online-studio-break-moog,
+  .online-studio-break-right {
+    justify-content: flex-start;
+  }
+  .online-studio-insert-moog {
+    width: min(100%, 520px);
+  }
+  .online-studio-insert-bass {
+    width: min(100%, 360px);
+  }
+}
+@media (max-width: 600px) {
+  .online-studio-break {
+    margin-top: 24px;
+  }
+  .online-studio-break-right {
+    margin-top: 30px;
+  }
+  .online-studio-insert-moog,
+  .online-studio-insert-bass {
+    width: 100%;
+  }
+}
