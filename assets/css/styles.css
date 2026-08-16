@@ -4466,3 +4466,109 @@ h1, h2, h3, h4, p, li {
   .hardware-feature-card, .hardware-feature-card img { min-height: 300px; }
   .hardware-instrument-grid { grid-template-columns: 1fr; }
 }
+
+
+/* step1.94: prominent Hardware Synth Sessions entry on /online/ + updated feature photos */
+.online-hardware-teaser {
+  padding-top: clamp(48px,6vw,84px);
+  padding-bottom: clamp(48px,6vw,84px);
+  background: linear-gradient(118deg,#08090c 0%,#101015 54%,#17100d 100%);
+  border-top: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.online-hardware-teaser-card {
+  display: grid;
+  grid-template-columns: minmax(0,1.05fr) minmax(360px,.95fr);
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 30px;
+  background: linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,103,70,.055));
+  box-shadow: 0 30px 90px rgba(0,0,0,.22);
+  color: #fff;
+  text-decoration: none;
+}
+.online-hardware-teaser-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(34px,5vw,66px);
+}
+.online-hardware-teaser-copy h2 {
+  margin: 0;
+  font-size: clamp(2.9rem,5.7vw,5.6rem);
+  line-height: .92;
+  letter-spacing: -.045em;
+}
+.online-hardware-teaser-copy h2 em { color: var(--orange); font-style: normal; }
+.online-hardware-teaser-copy h3 {
+  margin: 24px 0 12px;
+  font-size: clamp(1.25rem,2vw,1.75rem);
+  line-height: 1.16;
+}
+.online-hardware-teaser-copy > p:not(.eyebrow) {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255,255,255,.68);
+  line-height: 1.72;
+}
+.online-hardware-teaser-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 23px;
+}
+.online-hardware-teaser-tags span {
+  padding: 7px 11px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 999px;
+  background: rgba(255,255,255,.035);
+  color: rgba(255,255,255,.76);
+  font-size: .67rem;
+  font-weight: 800;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+}
+.online-hardware-teaser-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 28px;
+  color: var(--orange);
+  font-size: .82rem;
+  letter-spacing: .015em;
+}
+.online-hardware-teaser-link b { font-size: 1rem; transition: transform .25s ease; }
+.online-hardware-teaser-card:hover .online-hardware-teaser-link b { transform: translate(3px,-3px); }
+.online-hardware-teaser-media {
+  min-height: 480px;
+  margin: 0;
+  overflow: hidden;
+  background: #0a0a0d;
+}
+.online-hardware-teaser-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  object-fit: cover;
+  object-position: 52% 50%;
+  transition: transform .7s ease;
+}
+.online-hardware-teaser-card:hover .online-hardware-teaser-media img { transform: scale(1.025); }
+.hardware-feature-card:first-child img { object-position: 52% 50%; }
+.hardware-feature-card:nth-child(2) img { object-position: 50% 48%; }
+@media (max-width: 920px) {
+  .online-hardware-teaser-card { grid-template-columns: 1fr; }
+  .online-hardware-teaser-media { min-height: 360px; order: -1; }
+  .online-hardware-teaser-media img { min-height: 360px; }
+}
+@media (max-width: 600px) {
+  .online-hardware-teaser { padding-top: 36px; padding-bottom: 36px; }
+  .online-hardware-teaser-card { border-radius: 22px; }
+  .online-hardware-teaser-copy { padding: 28px 22px 32px; }
+  .online-hardware-teaser-copy h2 { font-size: clamp(2.55rem,12vw,3.7rem); }
+  .online-hardware-teaser-media, .online-hardware-teaser-media img { min-height: 285px; }
+  .online-hardware-teaser-tags { gap: 6px; }
+  .online-hardware-teaser-tags span { font-size: .61rem; }
+}
