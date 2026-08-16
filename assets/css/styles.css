@@ -4311,3 +4311,158 @@ h1, h2, h3, h4, p, li {
     width: 100%;
   }
 }
+
+/* step1.93: Hardware Synth Sessions landing page */
+.online-session-option-featured {
+  border-color: rgba(255,103,70,.36);
+  background: linear-gradient(135deg,rgba(255,103,70,.085),rgba(255,255,255,.025));
+}
+.online-session-inline-link {
+  display: inline-flex;
+  margin-top: 10px;
+  color: var(--orange);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+.online-session-inline-link:hover { color: #fff; }
+.hardware-synth-page .hardware-hero .online-hero-grid { grid-template-columns: minmax(0,1fr) minmax(440px,.88fr); }
+.hardware-synth-page .hardware-hero-visual { width: min(100%,620px); }
+.hardware-synth-page .hardware-hero-image {
+  aspect-ratio: 4 / 3;
+  border-radius: 28px;
+}
+.hardware-synth-page .hardware-hero-image img {
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.hardware-synth-page .hardware-hero-card { max-width: 280px; right: -22px; bottom: 28px; }
+.hardware-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 22px;
+}
+.hardware-service-grid > article {
+  min-height: 100%;
+  padding: clamp(27px,3.2vw,42px);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 24px;
+  background: rgba(255,255,255,.035);
+}
+.hardware-service-grid > article:first-child {
+  border-color: rgba(255,103,70,.35);
+  background: rgba(255,103,70,.07);
+}
+.hardware-service-grid h3 { margin: 14px 0 12px; font-size: clamp(1.45rem,2.2vw,2rem); }
+.hardware-service-grid p { color: rgba(255,255,255,.66); line-height: 1.7; }
+.hardware-service-grid ul { display: grid; gap: 9px; margin: 22px 0 0; padding: 0; list-style: none; }
+.hardware-service-grid li { position: relative; padding-left: 19px; color: rgba(255,255,255,.78); line-height: 1.55; }
+.hardware-service-grid li::before { content: '•'; position: absolute; left: 0; color: var(--orange); }
+.hardware-tailored-note { margin-top: 24px; }
+.hardware-delivery { background: var(--paper); }
+.hardware-delivery-card {
+  align-self: center;
+  padding: clamp(30px,4vw,48px);
+  border: 1px solid rgba(12,12,16,.12);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 30px 80px rgba(17,17,22,.08);
+}
+.hardware-delivery-card small {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--orange);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.hardware-delivery-card strong { display: block; font-family: var(--display); font-size: clamp(1.9rem,3vw,3rem); line-height: 1.06; }
+.hardware-delivery-card p { margin: 20px 0 0; color: rgba(15,15,20,.66); line-height: 1.7; }
+.hardware-delivery-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.hardware-delivery-tags span { padding: 7px 11px; border: 1px solid rgba(15,15,20,.12); border-radius: 999px; font-size: .72rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.hardware-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.hardware-feature-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 390px;
+  margin: 0;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 24px;
+  background: #111217;
+}
+.hardware-feature-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+.hardware-feature-card:hover img { transform: scale(1.025); }
+.hardware-feature-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,rgba(4,5,8,.02) 35%,rgba(4,5,8,.9) 100%);
+  pointer-events: none;
+}
+.hardware-feature-card figcaption {
+  position: absolute;
+  z-index: 2;
+  left: 24px;
+  right: 24px;
+  bottom: 22px;
+  display: grid;
+  gap: 5px;
+}
+.hardware-feature-card figcaption small { color: var(--orange); font-size: .64rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.hardware-feature-card figcaption strong { font-family: var(--display); font-size: clamp(1.5rem,2.2vw,2.15rem); }
+.hardware-feature-card figcaption span { max-width: 560px; color: rgba(255,255,255,.7); font-size: .9rem; line-height: 1.5; }
+.hardware-instrument-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 14px;
+}
+.hardware-instrument-grid article {
+  padding: 24px 20px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 18px;
+  background: rgba(255,255,255,.035);
+}
+.hardware-instrument-grid small { color: var(--orange); font-size: .61rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.hardware-instrument-grid h3 { margin: 8px 0 10px; font-size: 1.02rem; }
+.hardware-instrument-grid p { margin: 0; color: rgba(255,255,255,.6); font-size: .88rem; line-height: 1.6; }
+.hardware-more { max-width: 940px; margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.61); }
+.hardware-more p { margin: 0; line-height: 1.65; }
+.hardware-equipment-link {
+  display: inline-flex;
+  margin-top: 12px;
+  color: var(--orange);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+.hardware-equipment-link:hover { color: #fff; }
+.hardware-pricing { border-top: 1px solid rgba(255,255,255,.08); }
+@media (max-width: 1180px) {
+  .hardware-synth-page .hardware-hero .online-hero-grid { grid-template-columns: minmax(0,1fr) minmax(360px,.72fr); }
+  .hardware-instrument-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+@media (max-width: 860px) {
+  .hardware-synth-page .hardware-hero .online-hero-grid { grid-template-columns: 1fr; }
+  .hardware-synth-page .hardware-hero-visual { justify-self: center; width: min(100%,680px); }
+  .hardware-service-grid { grid-template-columns: 1fr; }
+  .hardware-visual-grid { grid-template-columns: 1fr; }
+  .hardware-instrument-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 560px) {
+  .hardware-synth-page .hardware-hero-image { aspect-ratio: 4 / 3; border-radius: 20px; }
+  .hardware-synth-page .hardware-hero-card { position: relative; right: auto; bottom: auto; max-width: none; margin: -18px 12px 0; }
+  .hardware-feature-card, .hardware-feature-card img { min-height: 300px; }
+  .hardware-instrument-grid { grid-template-columns: 1fr; }
+}
