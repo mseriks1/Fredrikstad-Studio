@@ -4218,3 +4218,96 @@ h1, h2, h3, h4, p, li {
     max-width: 300px;
   }
 }
+
+
+/* step1.86: Pro-Sessions piano & vocal landing page */
+.online-path-card:nth-child(5) figure img { object-position: 50% 58%; }
+@media (min-width: 861px) {
+  .online-path-grid > .online-path-card:last-child { grid-column: 1 / -1; }
+  .online-path-grid > .online-path-card:last-child figure { min-height: 330px; }
+}
+.piano-page .piano-hero-image img { object-position: 50% 50%; }
+.piano-page .piano-hero .online-hero-card { max-width: 310px; }
+.piano-heart-image img { object-position: 50% 36%; filter: grayscale(1); }
+.piano-build { background: linear-gradient(118deg,#0b0b10,#111117 54%,#0f1520); }
+.piano-build-image img { aspect-ratio: .92; object-fit: cover; object-position: 50% 34%; }
+.piano-vocals { background: var(--paper); }
+.piano-service-grid article:nth-child(2) { border-color: rgba(255,103,70,.34); background: rgba(255,103,70,.075); }
+@media (max-width: 860px) {
+  .online-path-grid > .online-path-card:last-child { grid-column: auto; }
+}
+@media (max-width: 600px) {
+  .piano-page .piano-hero-image img { object-position: 51% 50%; }
+  .piano-build-image img { aspect-ratio: 1.02; object-position: 50% 32%; }
+  .piano-heart-image img { object-position: 50% 34%; }
+}
+
+
+/* step1.87: unique third image on Piano & Vocal page */
+.piano-build-image-closeup img {
+  aspect-ratio: .92;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+@media (max-width: 600px) {
+  .piano-build-image-closeup img {
+    aspect-ratio: 1.02;
+    object-position: 50% 40%;
+  }
+}
+
+
+/* step1.88 — Pro-Sessions Indie / Guitar-Driven landing page */
+@media (min-width: 861px) {
+  .online-path-grid > .online-path-card:last-child { grid-column: auto; }
+  .online-path-grid > .online-path-card:last-child figure { min-height: 310px; }
+}
+.online-path-card:nth-child(6) figure img { object-position: 57% 38%; }
+.indie-page .indie-hero-image img { object-position: 58% 44%; }
+.indie-page .indie-hero .online-hero-card { max-width: 285px; }
+.indie-band-image img { object-position: 50% 40%; filter: none; }
+.indie-service-grid article:nth-child(2) { border-color: rgba(255,103,70,.34); background: rgba(255,103,70,.075); }
+.indie-build { background: linear-gradient(118deg,#090b0d,#111015 55%,#17110f); }
+.indie-build-image img { aspect-ratio: 1.22; object-position: 50% 42%; }
+.indie-studio { background: linear-gradient(112deg,#0b0b10,#121117 58%,#1a1210); }
+@media (max-width: 860px) {
+  .indie-page .indie-hero-image img { object-position: 59% 42%; }
+  .indie-build-image img { aspect-ratio: 1.05; object-position: 50% 42%; }
+}
+
+
+/* step1.89: unique third visual on Indie landing page */
+.indie-build-image-artist img {
+  aspect-ratio: .72;
+  object-fit: cover;
+  object-position: 50% 38%;
+}
+@media (max-width: 860px) {
+  .indie-build-image-artist { width: min(100%, 520px); }
+  .indie-build-image-artist img { aspect-ratio: .75; object-position: 50% 36%; }
+}
+
+/* step1.90: show the full indie band portrait instead of cropping it */
+.indie-band-image {
+  width: min(100%, 520px);
+  justify-self: center;
+}
+.indie-band-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+}
+@media (max-width: 860px) {
+  .indie-band-image {
+    width: min(92%, 560px);
+  }
+}
+@media (max-width: 600px) {
+  .indie-band-image {
+    width: 100%;
+  }
+}
