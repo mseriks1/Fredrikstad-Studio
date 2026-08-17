@@ -2303,6 +2303,9 @@ h1, h2, h3, h4, p, li {
 .kids-price-featured { border-color: rgba(229,47,138,.6) !important; background: linear-gradient(145deg,rgba(229,47,138,.18),rgba(255,255,255,.05)) !important; transform: translateY(-13px); box-shadow: 0 28px 70px rgba(229,47,138,.11); }
 .kids-price-badge { position: absolute; right: 22px; top: 22px; padding: 7px 11px; border-radius: 999px; color: #fff; background: var(--kids-pink); font-size: .65rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .kids-pricing-note { max-width: 900px; margin: 35px auto 0; color: rgba(255,255,255,.58); text-align: center; font-size: .9rem; }
+.kids-pricing-funding-note { margin-top: 14px; }
+.kids-pricing-funding-note a { color: var(--kids-pink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.kids-pricing-funding-note a:hover { color: #fff; }
 
 .kids-funding-section { background: #f7f1e9; }
 .kids-funding-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(55px,8vw,120px); }
